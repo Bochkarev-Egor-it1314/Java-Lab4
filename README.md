@@ -158,6 +158,40 @@ public class BoxFullException extends Exception {
     }
 ```
 
+```
+System.out.println("Задание 1");
+
+                    // Проверка ввода
+                    System.out.println("\nПожалуйста, введите целое число 3:");
+                    int userItem = 0;
+                    while (true) {
+                        System.out.print("Введите число: ");
+                        try {
+                            userItem = scan.nextInt();
+                            if (userItem != 3) {
+                                System.out.println("Ошибка: требуется ввести число 3. Попробуйте ещё раз.");
+                                continue;
+                            }
+                            break;
+                        } catch (InputMismatchException ime) {
+                            System.out.println("Неверный ввод: требуется целое число. Попробуйте ещё раз.");
+                            scan.next(); // очистка неверного токена
+                        }
+                    }
+
+                    // Создаём коробку
+                    Box<Integer> insideBox = new Box<>();
+                    try {
+                        insideBox.put(userItem);
+                        System.out.println("Внутри коробки: " + insideBox);
+                    } catch (BoxFullException e) {
+                        System.out.println("Не удалось положить объект: " + e.getMessage());
+                    }
+
+                    // Выполнение действий с коробкой
+                    Helper.workWithBox(insideBox);
+```
+
 **<ins>Вывод на экран:</ins>**
 
 Пожалуйста, введите целое число 3:
