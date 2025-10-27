@@ -38,11 +38,6 @@ public class Box<T> {
         return item;
     }
 
-    // Сеттер
-    public void setItem(T item) {
-        this.item = item;
-    }
-
     // Возвращение строки
     @Override
     public String toString() {
@@ -53,3 +48,4 @@ public class Box<T> {
         }
     }
 }
+
